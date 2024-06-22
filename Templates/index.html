@@ -45,13 +45,13 @@
         <section id="textupload">
             <h2>Upload File</h2>
             <form action="#" method="post">
-                <!-- {% csrf_token %}  -->
+                {% csrf_token %} 
                 <div class="NotesWritingContainer">
                     <div class="NoteTitle">
-                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Title" value='{{notetitle}}'>
+                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Text Title" value='{{notetitle}}'>
                     </div>
                     <div class="NoteBody">
-                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your note here">{{notecontent}}</textarea>
+                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here">{{notecontent}}</textarea>
                     </div>                       
                 </div>
                 <button type="submit" name="submit">Upload</button>
