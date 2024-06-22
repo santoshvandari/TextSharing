@@ -1,8 +1,22 @@
-{% extends "Home/base.html" %}
-{% block linkfiles %}
-    <link rel="stylesheet" href="/static/Home/css/index.css">
-    <script defer src="/static/Home/js/index.js"></script>
-{% endblock linkfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Notes</title>
+    <link rel="stylesheet" href="/static/Home/css/base.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"> <h1>Voice Notes</h1></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/mynotes">MyNotes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
 {% block mainsection %}
         <section class="NoteSection" id="NoteSection">
             <div class="NoteContainer">
