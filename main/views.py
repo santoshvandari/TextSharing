@@ -8,13 +8,13 @@ def Home(request):
         notecontent=request.POST.get("NoteContent").strip()
         if notetitle and notecontent:
             print(notetitle,notecontent)
-            slug=sug_generator(notetitle)
-            fileid=fileid()
+            slug=slug_generator(notetitle)
+            textid=fileid()
             try:
                 successdata={
                     'status':'success',
                     'slug':'http://127.0.0.1:8000/d/'+slug,
-                    'fileid':fileno
+                    'fileid':textid
                 }
                 return render(request,"index.html",successdata)
             except Exception as ex:
