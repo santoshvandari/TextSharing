@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from main.SlugGenerator import slug_generator,fileid
 from main.models import SharedText
 
@@ -33,6 +33,20 @@ def Home(request):
             }
             return render(request,'index.html',successdata)
     return render(request,"index.html")
+
+def Download(request,slug):
+    if not slug:
+        return redirect("/404")
+    if slug:
+        try:
+            pass
+        except Exception as ex:
+            pass
+
+
+
+
+
 
 
 
