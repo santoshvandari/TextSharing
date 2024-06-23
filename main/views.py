@@ -34,12 +34,13 @@ def Home(request):
             return render(request,'index.html',successdata)
     return render(request,"index.html")
 
-def Download(request,slug):
+def DownloadText(request,slug):
     if not slug:
         return redirect("/404")
     if slug:
         try:
-            pass
+            text = SharedText.objects.filter(slug=slug)
+            
         except Exception as ex:
             pass
 
