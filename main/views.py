@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.SlugGenerator import slug_generator,fileid
+from main.models import SharedText
 
 # Create your views here.
 def Home(request):
@@ -11,6 +12,7 @@ def Home(request):
             slug=slug_generator(notetitle)
             textid=fileid()
             try:
+                SharedText.objects.create(title=notetitle,note=notetitle,slug=slug,fileid=textid)
                 successdata={
                     'status':'success',
                     'slug':'http://127.0.0.1:8000/d/'+slug,
