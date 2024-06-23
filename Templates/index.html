@@ -20,11 +20,13 @@
         </nav>
     </header>
     <main>
+        {% if status %}
         <section id="successMessage">
             <div class="messageSection">
                 <div class="status">
                     <p id="status"></p>
                 </div>
+                {% if status=="success" %}
                     <div class="message">
                         <p>File Uploaded URL:
                             <div class="url">
@@ -38,11 +40,15 @@
                             <span id="fileidcopy">Copy</span>
                         </div></p>
                     </div>
+                {% endif %}
+            {% if status=="error" %}
             <div class="message">
                 <p>{{message}}</p>
             </div>
+            {% endif %}
         </div>
         </section>
+        {% endif %}
         <section id="textupload">
             <h2>Upload File</h2>
             <form action="#" method="post">
