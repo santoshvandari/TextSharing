@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from main.SlugGenerator import slug_generator,fileid
+from main.RemovingText import RemoveAllExpiredFiles
 from main.models import SharedText
 
 # Create your views here.
@@ -12,7 +13,7 @@ def Home(request):
             slug=slug_generator(notetitle)
             textid=fileid()
             try:
-                SharedText.objects.create(title=notetitle,note=notetitle,slug=slug,fileid=textid)
+                SharedText.objects.create(title=notetitle,note=notecontent,slug=slug,fileid=textid)
                 successdata={
                     'status':'success',
                     'slug':'http://127.0.0.1:8000/d/'+slug,
@@ -34,15 +35,35 @@ def Home(request):
             return render(request,'index.html',successdata)
     return render(request,"index.html")
 
+def Download(request):
+    pass
+
+
+
+
 def DownloadText(request,slug):
     if not slug:
         return redirect("/404")
     if slug:
         try:
-            text = SharedText.objects.filter(slug=slug)
-            
+            text = SharedText.objects.filter(slug=slug).first()
         except Exception as ex:
-            pass
+            print(ex)
+            return redirect("/404")
+        if not text:
+                return redirect("/404")
+        elif text.is_expired():
+            if(RemoveAllExpiredFiles()):
+                return redirect('/404')
+            return redirect('/404')
+        else:
+            return render(request,"SingleTextFileView.html",{"text":text})
+    else:
+        return redirect("/404")
+    return redirect('/404')
+            
+
+
 
 
 

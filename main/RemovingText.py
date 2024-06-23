@@ -8,6 +8,6 @@ from main.models import SharedText
 def RemoveAllExpiredFiles():
     texts=SharedText.objects.all()
     for text in texts:
-        if file.is_expired():
-            file.delete()
+        if text.is_expired():
+            text.delete()
     return True
