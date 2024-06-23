@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from main.SlugGenerator import slug_generator,fileid
 
 # Create your views here.
 def Home(request):
@@ -7,13 +8,22 @@ def Home(request):
         notecontent=request.POST.get("NoteContent").strip()
         if notetitle and notecontent:
             print(notetitle,notecontent)
-            statusdata={
-                'status':'success',
-                'slug':'http://127.0.0.1:8000/d/'+slug,
-                'fileid':fileno
-            }
-
-
+            slug=sug_generator(notetitle)
+            fileid=fileid()
+            try:
+                successdata={
+                    'status':'success',
+                    'slug':'http://127.0.0.1:8000/d/'+slug,
+                    'fileid':fileno
+                }
+                return render(request,"index.html",successdata)
+            except Exception as ex:
+                print(ex)
+                successdata={
+                    'status':'error',
+                    'message':'Something went wrong.'
+                }
+                return render(request,'index.html',successdata)
         else:
             successdata={
                 'status':'error',

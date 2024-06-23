@@ -26,7 +26,7 @@
                 <div class="status">
                     <p id="status"></p>
                 </div>
-                {% if status=="success" %}
+                {% if status == "success" %}
                     <div class="message">
                         <p>File Uploaded URL:
                             <div class="url">
@@ -41,9 +41,9 @@
                         </div></p>
                     </div>
                 {% endif %}
-            {% if status=="error" %}
+            {% if status == "error" %}
             <div class="message">
-                <p>{{message}}</p>
+                <p id="error">{{message}}</p>
             </div>
             {% endif %}
         </div>
