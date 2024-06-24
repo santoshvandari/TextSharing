@@ -36,7 +36,29 @@ def Home(request):
     return render(request,"index.html")
 
 def Download(request):
-    pass
+    if request.method=="POST":
+        fileid = (request.POST.get("fileid")).strip()
+        if not fileid:
+            print("file id: "+fileid)
+            return render(request,'download.html',{"error" : "Text ID Cannot Be Empty"})
+        if fileid:
+            try:
+                text=SharedText.objects.filter(fileid=fileid).first()
+            except Exception as ex:
+                print(ex)
+                return redirect("/404")
+            if not text:
+                return redirect("/404")
+            elif text.is_expired():
+                # remove from teh datbase and the file from the server
+                if(RemoveAllExpiredFiles()):
+                    return redirect("/404")
+                return redirect("/404")
+            else:
+                return render(request,"download.html",{"text":text})
+        else:
+            return redirect("/404")
+    return render(request,'download.html')
 
 
 

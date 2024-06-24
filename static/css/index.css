@@ -173,3 +173,45 @@ div.url span:hover{
 }
 /* Success Message Ends Here */
 /* Main Section Ends Here */
+
+
+
+/* Text Download Form  */
+/* Upload Section Start Here  */
+#textDownload {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+#textDownload h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+div.error{
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+#textDownload form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form label{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#textDownload input{
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 20px;
+}

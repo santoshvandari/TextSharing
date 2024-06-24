@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Notes</title>
+    <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/download.css">
 </head>
 <body>
@@ -19,33 +20,34 @@
         </nav>
     </header>
     <main>
-        <section id="fileDownload">
+        <section id="textDownload">
             <h2>Download File</h2>
             {% if error %}
             <div class="error">{{error}}</div>
             {% endif %}
             <form action="#" method="post">
                 {% csrf_token %}
-                <label for="download">Enter a File ID: </label>
-                <input type="text" name="fileid" id="download" placeholder="Enter a File ID"/>
+                <label for="download">Enter a Text ID: </label>
+                <input type="text" name="fileid" id="download" placeholder="Enter a Text ID"/>
                 <button type="submit">Download</button>
             </form>
         </section>
+        {% if text %}
         <section id="textupload">
-            <h2>Upload Text</h2>
-            <form action="/" method="post">
+            <h2>Download Text</h2>
+            <form>
                 {% csrf_token %} 
                 <div class="NotesWritingContainer">
                     <div class="NoteTitle">
-                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Text Title" value='{{notetitle}}'>
+                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Text Title" value='{{text.title}}' readonly>
                     </div>
                     <div class="NoteBody">
-                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here">{{notecontent}}</textarea>
+                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here" readonly>{{text.note}}</textarea>
                     </div>                       
                 </div>
-                <button type="submit" name="submit">Upload</button>
             </form>
         </section>
+        {% endif %}
     </main>
 </body>
 </html>
