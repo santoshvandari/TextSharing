@@ -72,6 +72,7 @@ main{
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 div.status{
     font-size: 20px;
@@ -159,7 +160,7 @@ div.url{
     flex-direction: column;
     border-radius: 10px;
 }
-div.url span{
+div.url span,span#copy{
     font-size: 20px;
     font-weight: 500;
     background: #007bff;
@@ -168,7 +169,7 @@ div.url span{
     border-radius: 5px;
     cursor: pointer;
 }
-div.url span:hover{
+div.url span:hover,span#copy:hover{
     background: #0056b3;
 }
 /* Success Message Ends Here */

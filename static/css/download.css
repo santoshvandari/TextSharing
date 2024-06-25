@@ -108,5 +108,18 @@ form label{
     background-color: #218838;
 }
 
+span#copy{
+    font-size: 20px;
+    font-weight: 500;
+    background: #007bff;
+    padding: 5px 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+span#copy:hover{
+    background: #0056b3;
+}
+
 
 
