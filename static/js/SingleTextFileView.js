@@ -1,0 +1,1 @@
+const copyBtn=document.getElementById("copy");

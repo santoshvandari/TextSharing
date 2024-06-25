@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Notes</title>
     <link rel="stylesheet" href="/static/css/index.css">
+    <script defer src="/static/js/SingleTextFileView.js"></script>
 </head>
 <body>
     <header>
@@ -32,6 +33,7 @@
                         <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here" readonly>{{text.note}}</textarea>
                     </div>                       
                 </div>
+                <button id="copy">Copy</button>
             </form>
         </section>
         {% else  %}
