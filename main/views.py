@@ -30,7 +30,9 @@ def Home(request):
         else:
             successdata={
                 'status':'error',
-                'message':'All Fields are Required.'
+                'message':'All Fields are Required.',
+                'notetitle':notetitle,
+                'notecontent':notecontent
             }
             return render(request,'index.html',successdata)
     return render(request,"index.html")
