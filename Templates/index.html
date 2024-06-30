@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block stylefiles %}
+<script defer src="/static/js/index.js"></script>
+{% endblock stylefiles %}
+{% block mainsection %}
+        {% if status %}
+        <section id="successMessage">
+            <div class="messageSection">
+                <div class="status">
+                    <p id="status"></p>
+                </div>
+                {% if status == "success" %}
+                    <div class="message">
+                        <p>File Uploaded URL:
+                            <div class="url">
+                                <url id="url">{{slug}}</url><br/>
+                                <span id="urlcopy">Copy</span>
+                            </div>
+                        </p>
+                        <p>File ID: 
+                            <div class="url">
+                            <strong id="fileid">{{fileid}}</strong><br/>
+                            <span id="fileidcopy">Copy</span>
+                        </div></p>
+                    </div>
+                {% endif %}
+            {% if status == "error" %}
+            <div class="message">
+                <p id="error">{{message}}</p>
+            </div>
+            {% endif %}
+        </div>
+        </section>
+        {% endif %}
+        <section id="textupload">
+            <h2>Upload Text</h2>
+            <form action="/" method="post">
+                {% csrf_token %} 
+                <div class="NotesWritingContainer">
+                    <div class="NoteTitle">
+                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Text Title" value='{{notetitle}}'>
+                    </div>
+                    <div class="NoteBody">
+                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here">{{notecontent}}</textarea>
+                    </div>                       
+                </div>
+                <button type="submit" name="submit">Upload</button>
+            </form>
+        </section>
+        
+        {% endblock mainsection %}

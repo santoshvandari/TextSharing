@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block stylefiles %}
+<script defer src="/static/js/SingleTextFileView.js"></script>
+{% endblock stylefiles %}
+{% block mainsection %}
+        {% if text %}
+        <section id="textupload">
+            <h2>Download Text</h2>
+            <form>
+                <div class="NotesWritingContainer">
+                    <div class="NoteTitle">
+                        <input type="text" name="NoteTitle" id="NoteTitle" placeholder="Text Title" value='{{text.title}}' readonly>
+                    </div>
+                    <div class="NoteBody">
+                        <textarea name="NoteContent" id="NoteContent" cols="30" rows="10" placeholder="Write your text here" readonly>{{text.note}}</textarea>
+                    </div>                       
+                </div>
+                <span id="copy">Copy</span>
+            </form>
+        </section>
+        {% else  %}
+
+
+
+        {% endif %}
+        
+{% endblock mainsection%}
